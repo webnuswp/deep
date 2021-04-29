@@ -47,7 +47,7 @@
     text-decoration: none;
     color: #000;
     margin-right: 18px;
-    line-height: 3;    
+    line-height: 3;
     font-weight: 500;
 }
 
@@ -108,7 +108,7 @@
     overflow: hidden;
 }
 
-.deeptheme-customizer-links ul.customizer-links { 
+.deeptheme-customizer-links ul.customizer-links {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -119,19 +119,19 @@
     width: 50%;
 }
 
-.deeptheme-customizer-links ul.customizer-links li, .pro-more-options li {    
+.deeptheme-customizer-links ul.customizer-links li, .pro-more-options li {
     border-bottom: 1px solid #e7e8e9;
     margin-bottom: 0;
 }
 
 .deeptheme-customizer-links ul.customizer-links li span {
     font-size: 15px;
-    vertical-align: middle;    
+    vertical-align: middle;
     color: #5f5b5b;
 }
 
 .pro-more-options span {
-    float: right;    
+    float: right;
     font-size: 12px;
     padding-right: 3px;
 }
@@ -194,7 +194,7 @@ h2.deeptheme-admin-title {
 .deeptheme-admin-right {
     width: 28%;
     float: right;
-    margin-left: 18px;    
+    margin-left: 18px;
 }
 
 .deeptheme-admin-left {
@@ -229,6 +229,6 @@ h2.deeptheme-admin-title {
 }
 
 .deeptheme-admin-notice {
-    margin-top: 35px;
+    margin: 35px 25px 0 0;
     position: relative;
 }

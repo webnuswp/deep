@@ -1,8 +1,8 @@
 <?php
 /**
  * Deep Theme.
- * 
- * The template for rooms 
+ *
+ * The template for rooms
  *
  * @since   1.0.0
  * @author  Webnus

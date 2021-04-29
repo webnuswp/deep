@@ -1,7 +1,7 @@
 <?php
 /**
  * Deep Theme.
- * 
+ *
  * The template for displaying speakers image
  *
  * @since   1.0.0
@@ -9,5 +9,5 @@
  */
 
 if ( defined( 'DEEPCORE' ) ) {
-	do_action( 'deepcore_speakers_images' );	
+	do_action( 'deepcore_speakers_images' );
 }

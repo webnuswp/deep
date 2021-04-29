@@ -1,7 +1,7 @@
 <?php
 /**
  * Deep Theme.
- * 
+ *
  * The template for displaying footer
  *
  * @since   1.0.0

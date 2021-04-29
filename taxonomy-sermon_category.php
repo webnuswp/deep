@@ -1,7 +1,7 @@
 <?php
 /**
  * Deep Theme.
- * 
+ *
  * The template for displaying sermon category single
  *
  * @since   1.0.0

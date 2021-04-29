@@ -259,7 +259,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			// Announce that the class is ready, and pass the object (for advanced use).
 			do_action_ref_array( 'tgmpa_init', array( $this ) );
 
-			
+
 
 			// When the rest of WP has loaded, kick-start the rest of the class.
 			add_action( 'init', array( $this, 'init' ) );
@@ -446,9 +446,9 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			}
 		}
 
-		
 
-		
+
+
 
 		/**
 		 * Hook in plugin action link filters for the WP native plugins page.
@@ -553,7 +553,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			}
 
 			if ( isset( $_REQUEST['tab'] ) && 'plugin-information' === $_REQUEST['tab'] ) {
-				// Needed for install_plugin_information().				
+				// Needed for install_plugin_information().
 				load_template( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 
 				wp_enqueue_style( 'plugin-install' );
@@ -634,7 +634,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 * @param array $args Menu item configuration.
 		 */
 		protected function add_admin_menu( array $args ) {
-			$this->page_hook = add_theme_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );			
+			$this->page_hook = add_theme_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
 		}
 
 		/**
@@ -708,7 +708,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 			// All plugin information will be stored in an array for processing.
 			$slug = sanitize_key( $_GET['plugin'] );
-			
+
 			if ( ! isset( $this->plugins[ $slug ] ) ) {
 				return false;
 			}
@@ -764,7 +764,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					'update.php'
 				);
 
-				if ( ! class_exists( 'Plugin_Upgrader', false ) ) {					
+				if ( ! class_exists( 'Plugin_Upgrader', false ) ) {
 					load_template( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
 				}
 
@@ -1549,7 +1549,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			static $api = array(); // Cache received responses.
 
 			if ( ! isset( $api[ $slug ] ) ) {
-				if ( ! function_exists( 'plugins_api' ) ) {					
+				if ( ! function_exists( 'plugins_api' ) ) {
 					load_template( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 				}
 
@@ -1889,7 +1889,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 * @return array Array of installed plugins with plugin information.
 		 */
 		public function get_plugins( $plugin_folder = '' ) {
-			if ( ! function_exists( 'get_plugins' ) ) {				
+			if ( ! function_exists( 'get_plugins' ) ) {
 				load_template( ABSPATH . 'wp-admin/includes/plugin.php' );
 			}
 
@@ -2062,7 +2062,7 @@ if ( ! function_exists( 'tgmpa' ) ) {
  *
  * @since 2.2.0
  */
-if ( ! class_exists( 'WP_List_Table' ) ) {	
+if ( ! class_exists( 'WP_List_Table' ) ) {
 	load_template( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
@@ -2612,7 +2612,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				// Display the 'Update' action link if an update is available and WP complies with plugin minimum.
 				if ( false !== $this->tgmpa->does_plugin_have_update( $item['slug'] ) && $this->tgmpa->can_plugin_update( $item['slug'] ) ) {
 					/* translators: %2$s: plugin name in screen reader markup */
-					$actions['update'] = __( 'Update %2$s', 'deep' );					
+					$actions['update'] = __( 'Update %2$s', 'deep' );
 				}
 
 				// Display the 'Activate' action link, but only if the plugin meets the minimum version.
@@ -2954,7 +2954,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 					$last_plugin  = array_pop( $plugin_names ); // Pop off last name to prep for readability.
 					$imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'deep' ) . ' ' . $last_plugin );
 
-					printf( 
+					printf(
 						'<div id="message" class="updated"><p>%1$s %2$s.</p></div>',
 						esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'deep' ) ),
 						wp_kses_post( $imploded )
@@ -3073,7 +3073,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 		$tgmpa_instance = call_user_func( array( get_class( $GLOBALS['tgmpa'] ), 'get_instance' ) );
 
 		if ( isset( $_GET['page'] ) && $tgmpa_instance->menu === $_GET['page'] ) {
-			if ( ! class_exists( 'Plugin_Upgrader', false ) ) {				
+			if ( ! class_exists( 'Plugin_Upgrader', false ) ) {
 				load_template( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
 			}
 

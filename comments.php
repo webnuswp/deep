@@ -1,8 +1,8 @@
 <?php
 /**
  * Deep Theme.
- * 
- * The template for comments 
+ *
+ * The template for comments
  *
  * @since   1.0.0
  * @author  Webnus

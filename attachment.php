@@ -1,7 +1,7 @@
 <?php
 /**
  * Deep Theme.
- * 
+ *
  * The template for displaying attachment pages
  *
  * @since   1.0.0

@@ -25,7 +25,7 @@ class Deep_Theme_Admin {
 	/**
 	 * Page title.
 	 *
-	 * @since   1.0.0	 
+	 * @since   1.0.0
 	 * @var     page_title
 	 */
 	public static $page_title = 'Deep';
@@ -33,7 +33,7 @@ class Deep_Theme_Admin {
 	/**
 	 * Menu title.
 	 *
-	 * @since   1.0.0	 
+	 * @since   1.0.0
 	 * @var     menu_title
 	 */
 	public static $menu_title = 'Deep Theme';
@@ -41,11 +41,11 @@ class Deep_Theme_Admin {
 	/**
 	 * Plugin Slug.
 	 *
-	 * @since   1.0.0	 
+	 * @since   1.0.0
 	 * @var     plugin_slug
 	 */
 	public static $plugin_slug = 'deep';
-	
+
 	/**
 	 * Provides access to a single instance of a module using the singleton pattern.
 	 *
@@ -67,37 +67,37 @@ class Deep_Theme_Admin {
 	 * @since   1.0.0
 	 */
 	public function __construct() {
-        
+
         if ( ! is_admin() ) {
             return;
-        }        
+        }
 
 		add_action( 'admin_menu', [$this, 'deeptheme_admin_menu'] );
-		add_action( 'deeptheme_rate', [$this, 'deeptheme_rate'] );		
+		add_action( 'deeptheme_rate', [$this, 'deeptheme_rate'] );
 		add_action( 'admin_notices', [$this, 'deeptheme_admin_notices'] );
-		add_action( 'deeptheme_community', [$this, 'deeptheme_community'] );
+		// add_action( 'deeptheme_community', [$this, 'deeptheme_community'] );
 		add_action( 'admin_enqueue_scripts', [$this, 'deeptheme_admin_assets'] );
 		add_action( 'deeptheme_admin_header', [$this, 'deeptheme_admin_header'] );
 		add_action( 'deeptheme_more_options', [$this, 'deeptheme_more_options'] );
 		add_action( 'deeptheme_admin_content', [$this, 'deeptheme_admin_content'] );
-		add_action( 'deeptheme_plugin_notice', [$this, 'deeptheme_plugin_notice'] );		
+		add_action( 'deeptheme_plugin_notice', [$this, 'deeptheme_plugin_notice'] );
 		add_action( 'deeptheme_knowledge_base', [$this, 'deeptheme_knowledge_base'] );
-		add_action( 'deeptheme_import_template', [$this, 'deeptheme_import_template'] );		
-		add_action( 'deeptheme_customizer_links', [$this, 'deeptheme_customizer_links'] );		
+		add_action( 'deeptheme_import_template', [$this, 'deeptheme_import_template'] );
+		add_action( 'deeptheme_customizer_links', [$this, 'deeptheme_customizer_links'] );
 
 	}
-	
+
 	/**
 	 * Deep Admin Assets.
 	 *
 	 * @since   1.0.0
 	 */
 	public function deeptheme_admin_assets() {
-		
+
 		wp_enqueue_style( 'deeptheme-admin-page', DEEP_THEME_URI . 'inc/assets/css/deeptheme-admin-page.css' , array(), DEEPTHEME );
-		
+
 	}
-	
+
 	/**
 	 * Deep Admin Menu.
 	 *
@@ -112,19 +112,19 @@ class Deep_Theme_Admin {
 		$admin_menu_callback = __CLASS__ . '::deeptheme_admin_menu_callback';
 
 		add_theme_page( $page_title, $menu_title, $capability, $menu_slug, $admin_menu_callback );
-		
+
 	}
-	
+
 	/**
 	 * Deep Admin Menu Callback.
 	 *
 	 * @since   1.0.0
 	 */
 	public static function deeptheme_admin_menu_callback() {
-		
+
 		?>
 		<div class="deeptheme-admin-page">
-			<?php 
+			<?php
 				do_action( 'deeptheme_admin_header' );
 				do_action( 'deeptheme_admin_content' );
 			?>
@@ -148,10 +148,10 @@ class Deep_Theme_Admin {
 						<img src="<?php echo esc_url( DEEP_THEME_URI . 'inc/assets/img/deep-logo.svg' ) ?>" width="120">
 					</a>
 				</div>
-				<div class="dp-admin-top-links">						
-					<a href="<?php echo esc_url( 'https://webnus.net/deep-premium-wordpress-theme/' ) ?>" target="_blank"><?php esc_html_e( 'Intro', 'deep' ); ?></a>					
-					<a href="<?php echo esc_url( 'https://webnus.net/deep-premium-wordpress-theme/#demos' ) ?>" target="_blank"><?php esc_html_e( 'Demos', 'deep' ); ?></a>					
-					<a href="<?php echo esc_url( 'https://webnus.net/pricing/' ) ?>" target="_blank"><?php esc_html_e( 'Pro', 'deep' ); ?></a>					
+				<div class="dp-admin-top-links">
+					<a href="<?php echo esc_url( 'https://webnus.net/deep-premium-wordpress-theme/' ) ?>" target="_blank"><?php esc_html_e( 'Intro', 'deep' ); ?></a>
+					<a href="<?php echo esc_url( 'https://webnus.net/deep-premium-wordpress-theme/#demos' ) ?>" target="_blank"><?php esc_html_e( 'Demos', 'deep' ); ?></a>
+					<a href="<?php echo esc_url( 'https://webnus.net/pricing/' ) ?>" target="_blank"><?php esc_html_e( 'Pro', 'deep' ); ?></a>
 					<a href="<?php echo esc_url( 'https://webnus.net/support/' ); ?>" target="_blank"><?php esc_html_e( 'Support', 'deep' ); ?></a>
 					<a href="<?php echo esc_url( 'https://webnus.net/deep-premium-wordpress-theme-documentation/' ); ?>" target="_blank"><?php esc_html_e( 'Help', 'deep' ); ?></a>
 				</div>
@@ -167,26 +167,26 @@ class Deep_Theme_Admin {
 	 * @since   1.0.0
 	 */
 	public function deeptheme_admin_content() {
-		
+
 		?>
 		<div class="deeptheme-admin-content">
 			<?php
-				do_action( 'deeptheme_plugin_notice' );					
+				do_action( 'deeptheme_plugin_notice' );
 			?>
 			<div class="deeptheme-admin-left">
-			<?php 
+			<?php
 				do_action( 'deeptheme_customizer_links' );
 				do_action( 'deeptheme_more_options' );
 			?>
 			</div>
 			<div class="deeptheme-admin-right">
-			<?php 
+			<?php
 				do_action( 'deeptheme_import_template' );
 				do_action( 'deeptheme_knowledge_base' );
 				do_action( 'deeptheme_community' );
 				do_action( 'deeptheme_rate' );
 			?>
-			</div>			
+			</div>
 		</div>
 		<?php
 
@@ -204,7 +204,7 @@ class Deep_Theme_Admin {
 				<?php if( ! defined( 'DEEPCORE' ) ): ?>
 					<h2><?php esc_html_e( 'Enable all Features of the Deep theme', 'deep' ); ?></h2>
 					<p><?php esc_html_e( 'In order to take full advantage of the Deep theme and enabling its demo importer, please install the recommended plugins.', 'deep' ); ?></p>
-					<a href="<?php echo esc_url( admin_url( 'themes.php?page=tgmpa-install-plugins' ) ); ?>" target="_blank"><?php esc_html_e( 'Install Plugin', 'deep' ); ?></a>
+					<a href="<?php echo esc_url( admin_url( 'themes.php?page=tgmpa-install-plugins' ) ); ?>"><?php esc_html_e( 'Install Plugin', 'deep' ); ?></a>
 				<?php else: ?>
 					<h2><?php esc_html_e( 'Go Pro & Full Access to Advanced Features', 'deep' ); ?></h2>
 					<p><?php esc_html_e( 'Get full access to more demos and all advanced features of Deep theme by upgrading to Pro version right away.', 'deep' ); ?></p>
@@ -223,9 +223,9 @@ class Deep_Theme_Admin {
 	public function deeptheme_customizer_links() {
 
 		if ( is_plugin_active( 'deepcore/deepcore.php' ) || is_plugin_active( 'deep-core-pro/deep-core-pro.php' ) ) {
-			
+
 			$customizer_url = admin_url( 'customize.php' ) . '?autofocus[panel]=';
-			
+
 			$customizer_links = apply_filters(
 				'deep_customizer_links',
 				array(
@@ -277,23 +277,23 @@ class Deep_Theme_Admin {
 			<div class="deeptheme-customizer-links">
 				<h2 class="deeptheme-admin-title">
 				<i class="dashicons dashicons-admin-customizer"></i>
-				<?php esc_html_e( 'Start Customizing', 'deep' ); ?>				
+				<?php esc_html_e( 'Start Customizing', 'deep' ); ?>
 				</h2>
 				<?php
 				if ( ! empty( $customizer_links ) ) :
-					?>					
+					?>
 					<ul class="customizer-links">
 						<?php
 						foreach ( $customizer_links as $link ) {
 							echo '<li><a href="' . esc_url( $link['url'] ) . '" target="_blank"><span class="dashicons ' . esc_attr( $link['icon'] ) . '"></span> ' . esc_html( $link['name'] ) . '</a></li>';
 						}
 						?>
-					</ul>					
-				<?php endif; ?>			
+					</ul>
+				<?php endif; ?>
 			</div>
 
 			<?php
-		}			
+		}
 
 	}
 
@@ -306,80 +306,80 @@ class Deep_Theme_Admin {
 
 		$more_options = apply_filters(
 			'deeptheme_pro_options',
-			array(																		
+			array(
 				'header-builder' => array(
-					'title' => __( 'Header Builder', 'deep' ),																				
+					'title' => __( 'Header Builder', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/header-builder/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
 				),
 				'defined-headers' => array(
-					'title' => __( 'Pre-defined Headers', 'deep' ),																				
+					'title' => __( 'Pre-defined Headers', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/import-pre-defined-headers/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),	
+				),
 				'footer-builder' => array(
-					'title' => __( 'Footer Builder', 'deep' ),																				
+					'title' => __( 'Footer Builder', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/footer-builder/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 				'portfolio' => array(
-					'title' => __( 'Portfolio', 'deep' ),																				
+					'title' => __( 'Portfolio', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/webnus-portfolio/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 				'gallery' => array(
-					'title' => __( 'Gallery', 'deep' ),																				
+					'title' => __( 'Gallery', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/webnus-gallery/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 				'shop' => array(
-					'title' => __( 'Shop', 'deep' ),																				
+					'title' => __( 'Shop', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/shop-theme-options/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 				'typography' => array(
-					'title' => __( 'Typography', 'deep' ),																				
+					'title' => __( 'Typography', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/typography/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 				'blog' => array(
-					'title' => __( 'Blog Options', 'deep' ),																				
+					'title' => __( 'Blog Options', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/blog-options/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 				'importer' => array(
-					'title' => __( 'One Click Demo Importer', 'deep' ),																				
+					'title' => __( 'One Click Demo Importer', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/import-demo/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 				'plugins' => array(
-					'title' => __( 'Premium Plugins', 'deep' ),																				
+					'title' => __( 'Premium Plugins', 'deep' ),
 					'link'  => array(
 						'url'     =>   'https://webnus.net/deep-premium-wordpress-theme-documentation/other-premium-plugins/',
-						'text'    => __( 'Learn More', 'deep' ),						
+						'text'    => __( 'Learn More', 'deep' ),
 					),
-				),		
+				),
 			)
 		);
-		
+
 		?>
 		<div class="deeptheme-more-options">
 			<h2 class="deeptheme-admin-title">
@@ -388,21 +388,21 @@ class Deep_Theme_Admin {
 			</h2>
 			<?php
 			if ( ! empty( $more_options ) ) :
-				?>					
+				?>
 				<ul class="pro-more-options">
 					<?php
 						foreach ( $more_options as $option ) {
 							$title = $option['title'];
 							$url   = $option['link']['url'];
 							$text  = $option['link']['text'];
-							
+
 							echo '<li>';
-								echo '<a href="' . esc_url( $url ) . '" target="_blank"> ' . esc_html( $title ) . ' <span> ' . esc_html( $text ) . ' <i class="dashicons dashicons-arrow-right-alt2"></i> </span> </a>';								
+								echo '<a href="' . esc_url( $url ) . '" target="_blank"> ' . esc_html( $title ) . ' <span> ' . esc_html( $text ) . ' <i class="dashicons dashicons-arrow-right-alt2"></i> </span> </a>';
 							echo '</li>';
 						}
 					?>
-				</ul>					
-			<?php endif; ?>			
+				</ul>
+			<?php endif; ?>
 		</div>
 		<?php
 
@@ -414,7 +414,7 @@ class Deep_Theme_Admin {
 	 * @since   1.0.0
 	 */
 	public function deeptheme_import_template() {
-		
+
 		?>
 		<div class="deeptheme-import-template deeptheme-r-admin">
 			<h2><i class="dashicons dashicons-database-import"></i> <?php esc_html_e( 'Demo Importer', 'deep' ); ?></h2>
@@ -423,7 +423,7 @@ class Deep_Theme_Admin {
 			<?php esc_html_e( 'In order to import the demo, you need to install the Deep Core plugin.', 'deep' ); ?>
 			</p>
 			<p>
-			<?php esc_html_e( 'Click', 'deep' ); ?> <a href="<?php echo esc_url( 'https://webnus.net/deep-premium-wordpress-theme-documentation/import-demo/' )?>" target="_blank"><?php esc_html_e( 'here', 'deep' ); ?></a><?php esc_html_e( ' to see the documentation.', 'deep' ); ?>			
+			<?php esc_html_e( 'Click', 'deep' ); ?> <a href="<?php echo esc_url( 'https://webnus.net/deep-premium-wordpress-theme-documentation/import-demo/' )?>" target="_blank"><?php esc_html_e( 'here', 'deep' ); ?></a><?php esc_html_e( ' to see the documentation.', 'deep' ); ?>
 			</p>
 		</div>
 		<?php
@@ -436,7 +436,7 @@ class Deep_Theme_Admin {
 	 * @since   1.0.0
 	 */
 	public function deeptheme_knowledge_base() {
-		
+
 		?>
 		<div class="deeptheme-knowledge-base deeptheme-r-admin">
 			<h2><i class="dashicons dashicons-book"></i> <?php esc_html_e( 'Knowledge Base', 'deep' ); ?></h2>
@@ -453,7 +453,7 @@ class Deep_Theme_Admin {
 	 * @since   1.0.0
 	 */
 	public function deeptheme_community() {
-		
+
 		?>
 		<div class="deeptheme-community deeptheme-r-admin">
 			<h2><i class="dashicons dashicons-reddit"></i> <?php esc_html_e( 'Deep Theme Community', 'deep' ); ?></h2>
@@ -470,7 +470,7 @@ class Deep_Theme_Admin {
 	 * @since   1.0.0
 	 */
 	public function deeptheme_rate() {
-		
+
 		?>
 		<div class="deeptheme-rate deeptheme-r-admin">
 			<h2><i class="dashicons dashicons-star-filled"></i> <?php esc_html_e( 'Rate us', 'deep' ); ?></h2>
@@ -487,34 +487,35 @@ class Deep_Theme_Admin {
 	 * @since   1.0.0
 	 */
 	public function deeptheme_admin_notices() {
+		$screen = get_current_screen();
 
-		if ( ! get_theme_mod( 'deep_theme_install' ) ) set_theme_mod( 'deep_theme_install', 'true' );
+		if ( $screen -> id == 'dashboard' || $screen -> id == 'themes' || $screen -> id == 'plugins' ) {
+			if ( ! get_theme_mod( 'deep_theme_install' ) ) set_theme_mod( 'deep_theme_install', 'true' );
 
-		if ( ! defined( 'DEEPCOREPRO' ) ) {			
-			
-			if ( get_theme_mod( 'deep_theme_install' ) == 'false' ) {
-				return;
-			}
-			
-			if ( isset( $_GET['deep_theme_hide'] ) && $_GET['deep_theme_hide'] == 'false' ) {
-				if ( isset( $_GET['deep_theme_hide'] ) ) {
-					set_theme_mod( 'deep_theme_install', 'false' );
-				}	
+			if ( ! defined( 'DEEPCOREPRO' ) ) {
 
-				return;
-			}
-	
-			?>
-			<div class="deeptheme-admin-notice">
-				<?php
-				self::deeptheme_plugin_notice();			
+				if ( get_theme_mod( 'deep_theme_install' ) == 'false' ) {
+					return;
+				}
+
+				if ( isset( $_GET['deep_theme_hide'] ) && $_GET['deep_theme_hide'] == 'false' ) {
+					if ( isset( $_GET['deep_theme_hide'] ) ) {
+						set_theme_mod( 'deep_theme_install', 'false' );
+					}
+
+					return;
+				}
+
 				?>
-				<a class="notice-dismiss" href="?deep_theme_hide=false"></a>
-			</div>
-			<?php
-			
+				<div class="deeptheme-admin-notice">
+					<?php
+					self::deeptheme_plugin_notice();
+					?>
+					<a class="notice-dismiss" href="?deep_theme_hide=false"></a>
+				</div>
+				<?php
+			}
 		}
-
 	}
 
 }

@@ -18,7 +18,7 @@ if ( ! function_exists( 'deep_theme_post_thumbnail' ) ) :
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
-		
+
 		?>
 
 		<div class="post-thumbnail">

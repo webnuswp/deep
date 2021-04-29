@@ -1,8 +1,8 @@
 <?php
 /**
  * Deep Theme.
- * 
- * The template for gallery 
+ *
+ * The template for gallery
  *
  * @since   1.0.0
  * @author  Webnus

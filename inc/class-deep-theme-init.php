@@ -21,7 +21,7 @@ class Deep_Theme_Init {
 	 * @var     Deep_Theme_Init
 	 */
 	public static $instance;
-	
+
 	/**
 	 * Provides access to a single instance of a module using the singleton pattern.
 	 *
@@ -52,8 +52,8 @@ class Deep_Theme_Init {
 		add_action( 'deep_theme_search', [$this, 'deep_theme_search'] );
 		add_action( 'deep_theme_comments', [$this, 'deep_theme_comments'] );
 		add_action( 'deep_theme_default_index', [$this, 'deep_theme_default_index'] );
-        add_action( 'deep_theme_page', [$this, 'deep_theme_page'] );  
-        add_action( 'deep_theme_notfound_page', [$this, 'deep_theme_notfound_page'] );  
+        add_action( 'deep_theme_page', [$this, 'deep_theme_page'] );
+        add_action( 'deep_theme_notfound_page', [$this, 'deep_theme_notfound_page'] );
         add_action( 'wp_enqueue_scripts', [$this, 'deep_theme_fonts'] );
         add_action( 'wp_enqueue_scripts', [$this, 'deep_theme_scripts'] );
 	}
@@ -68,7 +68,7 @@ class Deep_Theme_Init {
 			do_action( 'index_content' );
 		} else {
             self::deep_theme_default_index();
-        }		
+        }
     }
 
     /**
@@ -84,15 +84,15 @@ class Deep_Theme_Init {
                 return;
             }
             ?>
-            
+
             <div id="comments" class="comments-area">
-            
+
                 <?php
                 // You can start editing here -- including this comment!
                 if ( have_comments() ) :
-                    
+
                     the_comments_navigation(); ?>
-            
+
                     <ol class="comment-list">
                         <?php
                         wp_list_comments(
@@ -103,24 +103,24 @@ class Deep_Theme_Init {
                         );
                         ?>
                     </ol><!-- .comment-list -->
-            
+
                     <?php
                     the_comments_navigation();
-            
+
                     // If comments are closed and there are comments, let's leave a little note, shall we?
                     if ( ! comments_open() ) :
                         ?>
                         <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'deep' ); ?></p>
                         <?php
                     endif;
-            
+
                 endif; // Check for have_comments().
-            
+
                 comment_form();
                 ?>
-            
+
             </div><!-- #comments --> <?php
-        }		
+        }
     }
 
     /**
@@ -150,7 +150,7 @@ class Deep_Theme_Init {
                 </section><!-- .error-404 -->
             </main><!-- #main -->
             <?php
-        }        
+        }
     }
 
     /**
@@ -162,7 +162,7 @@ class Deep_Theme_Init {
 
         if ( defined( 'DEEPCORE' ) ) {
 			do_action( 'header_content' );
-		} else { 
+		} else {
             ?>
             <!doctype html>
             <html <?php language_attributes(); ?>>
@@ -175,7 +175,7 @@ class Deep_Theme_Init {
             </head>
 
             <body <?php body_class(); ?>>
-            <?php wp_body_open(); ?>       
+            <?php wp_body_open(); ?>
             <div id="page" class="site">
                 <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'deep' ); ?></a>
 
@@ -186,7 +186,7 @@ class Deep_Theme_Init {
                                 <?php
                                 if ( ! defined( 'DEEPCORE' ) ) {
                                     the_custom_logo();
-                                }                                
+                                }
                                 if ( is_front_page() && is_home() ) :
                                     ?>
                                     <div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
@@ -211,7 +211,7 @@ class Deep_Theme_Init {
                                     wp_nav_menu(
                                         array(
                                             'theme_location' => 'menu-1',
-                                            'menu_id'=> 'primary-menu',                                 
+                                            'menu_id'=> 'primary-menu',
                                         )
                                     );
                                 ?>
@@ -225,7 +225,7 @@ class Deep_Theme_Init {
                         <h2><?php esc_html_e( 'BLOG', 'deep' ); ?></h2>
                     </div>
                 <?php endif;?>
-            <?php        
+            <?php
         }
     }
 
@@ -242,8 +242,8 @@ class Deep_Theme_Init {
             </div><!-- #page -->
             <footer id="colophon" class="site-footer">
                 <div class="site-info">
-                    <?php                                                    
-                    esc_html_e( 'Deep Theme Powered by WordPress ', 'deep' );                                
+                    <?php
+                    esc_html_e( 'Deep Theme Powered by WordPress ', 'deep' );
                     ?>
                 </div><!-- .site-info -->
             </footer><!-- #colophon -->
@@ -252,9 +252,9 @@ class Deep_Theme_Init {
             </body>
             </html>
         <?php
-        }        
+        }
     }
-    
+
     /**
 	 * Single.
 	 *
@@ -267,37 +267,37 @@ class Deep_Theme_Init {
 		} else {
             ?>
             <main id="primary" class="site-main">
-        
+
                 <div class="deep-theme-blog">
                     <?php
                     while ( have_posts() ) :
                         the_post();
-            
+
                         get_template_part( 'template-parts/content', get_post_type() );
-            
+
                         the_post_navigation(
                             array(
                                 'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'deep' ) . '</span> <span class="nav-title">%title</span>',
                                 'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'deep' ) . '</span> <span class="nav-title">%title</span>',
                             )
                         );
-            
+
                         // If comments are open or we have at least one comment, load up the comment template.
                         if ( comments_open() || get_comments_number() ) :
                             comments_template();
                         endif;
-            
+
                     endwhile; // End of the loop.
                     ?>
                 </div>
-        
+
             </main><!-- #main -->
-      
+
         <?php
 
-        get_sidebar();                    
+        get_sidebar();
 
-        }        
+        }
     }
 
     /**
@@ -306,15 +306,15 @@ class Deep_Theme_Init {
 	 * @since   1.0.0
 	 */
 	public function deep_theme_sidebar() {
-        
+
         if ( ! defined( 'DEEPCORE' ) ) {
-            ?>        
+            ?>
             <aside id="secondary" class="widget-area">
                 <?php dynamic_sidebar( 'sidebar-1' ); ?>
             </aside>
             <?php
-        }      
-   
+        }
+
     }
 
     /**
@@ -327,11 +327,11 @@ class Deep_Theme_Init {
         if ( defined( 'DEEPCORE' ) ) {
 			do_action( 'search_content' );
 		} else {
-            ?>    
+            ?>
             <main id="primary" class="site-main">
-                <div class="deep-theme-blog">        
+                <div class="deep-theme-blog">
                     <?php if ( have_posts() ) : ?>
-            
+
                         <header class="page-header">
                             <h1 class="page-title">
                                 <?php
@@ -340,27 +340,27 @@ class Deep_Theme_Init {
                                 ?>
                             </h1>
                         </header><!-- .page-header -->
-            
+
                         <?php
                         /* Start the Loop */
                         while ( have_posts() ) :
                             the_post();
-            
+
                             /**
                              * Run the loop for the search to output the results.
                              * If you want to overload this in a child theme then include a file
                              * called content-search.php and that will be used instead.
                              */
                             get_template_part( 'template-parts/content', 'search' );
-            
+
                         endwhile;
-            
+
                         the_posts_navigation();
-            
+
                     else :
-            
+
                         get_template_part( 'template-parts/content', 'none' );
-            
+
                     endif;
                     ?>
                 </div>
@@ -369,7 +369,7 @@ class Deep_Theme_Init {
 
         get_sidebar();
 
-        }        
+        }
     }
 
     /**
@@ -389,25 +389,25 @@ class Deep_Theme_Init {
                     <?php
                     while ( have_posts() ) :
                         the_post();
-            
+
                         get_template_part( 'template-parts/content', 'page' );
-            
+
                         // If comments are open or we have at least one comment, load up the comment template.
                         if ( comments_open() || get_comments_number() ) :
                             comments_template();
                         endif;
-            
+
                     endwhile; // End of the loop.
                     ?>
                 </div>
             </main><!-- #main -->
-        
+
         <?php
 
         get_sidebar();
 
         }
-        
+
     }
 
     /**
@@ -421,20 +421,20 @@ class Deep_Theme_Init {
             do_action( 'index_content' );
         } else {
             self::deep_theme_default_index();
-        } 
-        
+        }
+
     }
-    
+
     /**
 	 * Default index.
 	 *
 	 * @since   1.0.0
 	 */
-	public static function deep_theme_default_index() {        
-        ?>    
+	public static function deep_theme_default_index() {
+        ?>
         <main id="primary" class="site-main">
-                        
-            <div class="deep-theme-index">                    
+
+            <div class="deep-theme-index">
                 <?php
                 if ( have_posts() ) :
 
@@ -468,12 +468,12 @@ class Deep_Theme_Init {
                 endif;
                 ?>
             </div>
-                                
+
         </main><!-- #main -->
-                
+
     <?php
 
-    get_sidebar();                
+    get_sidebar();
 
     }
 
@@ -483,7 +483,7 @@ class Deep_Theme_Init {
 	 * @since   1.0.0
 	 */
 	public function deep_theme_fonts() {
-        wp_enqueue_style( 'deep-theme-rubik-font', get_template_directory_uri() . '/css/rubik-font.css', array(), DEEPTHEME );            
+        wp_enqueue_style( 'deep-theme-rubik-font', get_template_directory_uri() . '/css/rubik-font.css', array(), DEEPTHEME );
     }
 
     /**
@@ -491,7 +491,7 @@ class Deep_Theme_Init {
 	 *
 	 * @since   1.0.0
 	 */
-	public function deep_theme_scripts() {        
+	public function deep_theme_scripts() {
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'deep-theme-mobile-menu', get_template_directory_uri() .'/js/mobile-menu.js', array('jquery' ), DEEPTHEME, true );
         wp_enqueue_style( 'deeptheme-style', get_template_directory_uri() . '/css/deep-theme-style.css', array(), DEEPTHEME );

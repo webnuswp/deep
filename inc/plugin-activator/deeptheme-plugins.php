@@ -34,8 +34,8 @@
 
 if ( ! defined( 'DEEPCOREPRO' ) ) {
 	load_template( get_template_directory() . '/inc/plugin-activator/class-tgm-plugin-activation.php' );
-	
-	add_action( 'tgmpa_register', 'deeptheme_register_required_plugins' );	
+
+	add_action( 'tgmpa_register', 'deeptheme_register_required_plugins' );
 }
 
 
@@ -71,7 +71,7 @@ function deeptheme_register_required_plugins() {
 					'required'  => false,
 					'image_src' => get_template_directory_uri() . '/inc/plugin-activator/images/dp-admin-plugins-pix43.jpg',
 					'category'  => 'builder free',
-				),		
+				),
 				array(
 					'name'      => esc_html__( 'Modern events calendar lite', 'deep' ),
 					'slug'      => 'modern-events-calendar-lite',
@@ -85,7 +85,7 @@ function deeptheme_register_required_plugins() {
 					'required'  => false,
 					'image_src' => get_template_directory_uri() . '/inc/plugin-activator/images/dp-admin-plugins-pix22.jpg',
 					'category'  => 'free',
-				),		
+				),
 				array(
 					'name'      => esc_html__( 'WP PageNavi', 'deep' ),
 					'slug'      => 'wp-pagenavi',
@@ -126,7 +126,7 @@ function deeptheme_register_required_plugins() {
 			$plugins    = array(
 				array(
 					'name'				=> esc_html__( 'Deep Core', 'deep' ),
-					'slug'				=> 'deepcore',				
+					'slug'				=> 'deepcore',
 				),
 			);
 		}
@@ -142,14 +142,15 @@ function deeptheme_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'           => 'deep',                 // Unique ID for hashing notices for multiple instances of TGMPA.
-		'default_path' => '',                      // Default absolute path to bundled plugins.
-		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'has_notices'  => false,                    // Show admin notices or not.
-		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.		
+		'id'			=> 'deep',					// Unique ID for hashing notices for multiple instances of TGMPA.
+		'default_path'	=> '',						// Default absolute path to bundled plugins.
+		'menu'			=> 'tgmpa-install-plugins',	// Menu slug.
+		'capability'	=> 'edit_theme_options',	// Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'has_notices'	=> false,					// Show admin notices or not.
+		'dismissable'	=> true,					// If false, a user cannot dismiss the nag message.
+		'dismiss_msg'	=> '',						// If 'dismissable' is false, this message will be output at top of nag.
+		'is_automatic'	=> true,					// Automatically activate plugins after installation or not.
+		'message'		=> '',						// Message to output right before the plugins table.
 	);
 
 	tgmpa( $plugins, $config );

@@ -1,7 +1,7 @@
 <?php
 /**
  * Deep Theme.
- * 
+ *
  * @since   1.0.0
  * @author  Webnus
  */

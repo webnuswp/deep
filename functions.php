@@ -8,7 +8,7 @@
  */
 
 if ( ! defined( 'DEEPTHEME' ) ) {
-	define( 'DEEPTHEME', '1.0.2' );
+	define( 'DEEPTHEME', '1.0.3' );
 }
 
 if ( ! defined( 'DEEP_HANDLE' ) ) {
@@ -202,6 +202,6 @@ if ( is_admin() ) {
 	/**
 	 * Deep Admin
 	 */
-	require_once DEEP_THEME_DIR . '/inc/class-deeptheme-admin.php';	
+	require_once DEEP_THEME_DIR . '/inc/class-deeptheme-admin.php';
 
 }
